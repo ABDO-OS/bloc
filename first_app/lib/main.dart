@@ -4,7 +4,6 @@ void main() {
   runApp(businessApp());
 }
 
-/*تمام يا علييييييييييييييييييييييييييييييييييييي*/
 class businessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,14 +13,7 @@ class businessApp extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              /*  ClipRRect(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(60)),
-            borderRadius: BorderRadius.circular(999),
-           child: Image(image: AssetImage ('images/0101.jpg'),
-           width: 200,
-             ),
-            ),*/
+            const Center(
               child: CircleAvatar(
                 radius: 105,
                 backgroundColor: Color.fromARGB(255, 42, 42, 42),
