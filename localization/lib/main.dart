@@ -18,7 +18,6 @@ Italin : it
 Chinese : zh
 Dutch : nl
 Japanese : ja	
-
 */
 
 class MyApp extends StatelessWidget {
@@ -48,11 +47,11 @@ class MyApp extends StatelessWidget {
         if (devicelocales != null) {
           for (var locale in supportedLocales) {
             if (locale.languageCode == devicelocales.languageCode) {
-              return locale; // Return the supported locale that matches device locale
+              return locale;
             }
           }
         }
-        return supportedLocales.first; // Fallback if no match is found
+        return supportedLocales.first;
       },
       home: Home(),
     );
