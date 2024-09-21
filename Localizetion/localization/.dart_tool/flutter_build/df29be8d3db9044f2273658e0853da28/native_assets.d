@@ -1,0 +1,1 @@
+ D:\\my\ apps\\Localizetion\\localization\\.dart_tool\\flutter_build\\df29be8d3db9044f2273658e0853da28\\native_assets.yaml: 
