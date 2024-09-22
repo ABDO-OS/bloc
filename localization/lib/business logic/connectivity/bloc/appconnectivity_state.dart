@@ -7,10 +7,10 @@ final class AppconnectivityInitial extends AppconnectivityState {}
 
 class AppConnectedState extends AppconnectivityState {
   final String? internetmessage;
-  AppConnectedState({this.internetmessage});
+  AppConnectedState({required this.internetmessage});
 }
 
 class AppNotConnectedState extends AppconnectivityState {
   final String? internetmessage;
-  AppNotConnectedState({this.internetmessage});
+  AppNotConnectedState({required this.internetmessage});
 }
