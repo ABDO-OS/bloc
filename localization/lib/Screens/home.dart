@@ -16,10 +16,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Color.fromARGB(255, 255, 243, 243),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: const Color.fromARGB(255, 255, 243, 243),
+        // color: const Color.fromARGB(255, 255, 243, 243),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
