@@ -45,9 +45,9 @@ class MyApp extends StatelessWidget {
               var lang = langstate is ChangeLanguage ? langstate.applang : "en";
               return BlocBuilder<AppconnectivityBloc, AppconnectivityState>(
                 builder: (context, connetstate) {
-                  var conn = connetstate is AppNotConnectedState
+                  var conn = connetstate is AppConnectedState
                       ? connetstate.internetmessage
-                      : "Internet is Connectted";
+                      : "Internet is Not Connectted";
                   return MaterialApp(
                     locale: Locale(lang!),
                     theme: theme == "l" ? ThemeData.light() : ThemeData.dark(),

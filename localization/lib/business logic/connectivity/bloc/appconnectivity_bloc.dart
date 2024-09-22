@@ -12,12 +12,25 @@ class AppconnectivityBloc
   StreamSubscription? streamSubscription;
   AppconnectivityBloc() : super(AppconnectivityInitial()) {
     on<AppconnectivityEvent>((event, emit) {
-      if (event is ConnectEvent) {
-        emit(AppConnectedState(internetmessage: "Internet is Connectted"));
-      } else if (event is NotConnectedEvent) {
-        emit(AppNotConnectedState(
-            internetmessage: "Internet is Not Connectted"));
+      switch (AppconnectivityEvent) {
+        case ConnectEvent:
+          emit(AppConnectedState(internetmessage: "Internet is Connectted"));
+          break;
+
+        case NotConnectedEvent:
+          emit(
+              AppConnectedState(internetmessage: "Internet is Not Connectted"));
+          break;
+
+        // default:
       }
+
+      // if (event is ConnectEvent) {
+      //   emit(AppConnectedState(internetmessage: "Internet is Connectted"));
+      // } else {
+      //   emit(AppNotConnectedState(
+      //       internetmessage: "Internet is Not Connectted"));
+      // }
     });
 
     streamSubscription = Connectivity().onConnectivityChanged.listen((value) {
@@ -31,7 +44,7 @@ class AppconnectivityBloc
   }
   @override
   Future<void> close() {
-    streamSubscription!.cancel();
+    streamSubscription?.cancel();
     return super.close();
   }
 }
