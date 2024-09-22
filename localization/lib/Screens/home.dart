@@ -20,91 +20,99 @@ class _HomeState extends State<Home> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: const Color.fromARGB(255, 255, 243, 243),
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 50),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 200),
-                child: Container(
-                  width: 300,
-                  height: 100,
-                  child: Center(
-                    child: Text(
-                      Applocalizations.of(context)!.translate('home_page'),
-                      style: TextStyle(
-                        fontSize: 40,
-                      ),
-                    ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Padding(
+            //   padding: const EdgeInsets.only(bottom: 200),
+            //   child: Container(
+            //     width: 300,
+            //     height: 100,
+            //     child: Center(
+            //       child: Text(
+
+            //         style: TextStyle(
+            //           fontSize: 40,
+            //         ),
+            //       ),
+            //     ),
+            //     decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(20),
+            //         color: const Color.fromARGB(255, 255, 181, 69)),
+            //   ),
+            // ),
+
+            Text(
+              Applocalizations.of(context)!.translate('home_page'),
+            ),
+            Text(widget.Message),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    BlocProvider.of<ApplanguageBloc>(context)
+                        .add(ArabicLanguageEvent());
+                  },
+                  child: Text(
+                    'اللفة العربية',
+                    style: TextStyle(color: Colors.white),
                   ),
-                  // color: Colors.orange,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color.fromARGB(255, 255, 181, 69)),
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(Colors.blue)),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(Applocalizations.of(context)!.translate('home_page')),
-                  Text(widget.Message),
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<ApplanguageBloc>(context)
-                          .add(ArabicLanguageEvent());
-                    },
-                    child: Text(
-                      'اللفة العربية',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                SizedBox(width: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    BlocProvider.of<ApplanguageBloc>(context)
+                        .add(EnglishLanguageEvent());
+                  },
+                  child: Text(
+                    'english',
+                    style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(width: 20.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<ApplanguageBloc>(context)
-                          .add(EnglishLanguageEvent());
-                    },
-                    child: Text(
-                      'english',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    BlocProvider.of<AppthemeBloc>(context)
+                        .add(LightThemeEvent());
+                  },
+                  child: Text(
+                    'Light theme',
+                    style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(width: 20.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<AppthemeBloc>(context)
-                          .add(LightThemeEvent());
-                    },
-                    child: Text(
-                      'Light theme',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                ),
+                SizedBox(width: 20.0),
+                ElevatedButton(
+                  onPressed: () {
+                    BlocProvider.of<AppthemeBloc>(context)
+                        .add(DarkThemeEvent());
+                  },
+                  child: Text(
+                    'Dark theme',
+                    style: TextStyle(color: Colors.white),
                   ),
-                  SizedBox(width: 20.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      BlocProvider.of<AppthemeBloc>(context)
-                          .add(DarkThemeEvent());
-                    },
-                    child: Text(
-                      'Dark theme',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.blue)),
-                  ),
-                  SizedBox(width: 20.0),
-                ],
-              )
-            ],
-          ),
+                  style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );

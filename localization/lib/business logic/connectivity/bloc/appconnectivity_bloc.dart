@@ -15,7 +15,8 @@ class AppconnectivityBloc
       if (event is ConnectEvent) {
         emit(AppConnectedState(internetmessage: "Internet is Connectted"));
       } else if (event is NotConnectedEvent) {
-        emit(AppConnectedState(internetmessage: "Internet is Connectted"));
+        emit(AppNotConnectedState(
+            internetmessage: "Internet is Not Connectted"));
       }
     });
 
