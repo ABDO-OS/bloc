@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/Helpers/applocalizations.dart';
+import 'package:localization/business%20logic/Languages/bloc/applanguage_bloc.dart';
+import 'package:localization/business%20logic/Theme/bloc/apptheme_bloc.dart';
 
 class Home extends StatefulWidget {
   final String Message;
@@ -45,8 +48,12 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(Applocalizations.of(context)!.translate('home_page')),
+                  Text(widget.Message),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<ApplanguageBloc>(context)
+                          .add(ArabicLanguageEvent());
+                    },
                     child: Text(
                       'اللفة العربية',
                       style: TextStyle(color: Colors.white),
@@ -56,7 +63,10 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(width: 20.0),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<ApplanguageBloc>(context)
+                          .add(EnglishLanguageEvent());
+                    },
                     child: Text(
                       'english',
                       style: TextStyle(color: Colors.white),
@@ -66,7 +76,10 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(width: 20.0),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<AppthemeBloc>(context)
+                          .add(LightThemeEvent());
+                    },
                     child: Text(
                       'Light theme',
                       style: TextStyle(color: Colors.white),
@@ -76,7 +89,10 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(width: 20.0),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<AppthemeBloc>(context)
+                          .add(DarkThemeEvent());
+                    },
                     child: Text(
                       'Dark theme',
                       style: TextStyle(color: Colors.white),
