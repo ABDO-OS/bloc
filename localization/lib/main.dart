@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/Helpers/applocalizations.dart';
 import 'package:localization/Helpers/constantes.dart';
 import 'package:localization/Screens/home.dart';
+import 'package:localization/business%20logic/Languages/bloc/applanguage_bloc.dart';
+import 'package:localization/business%20logic/Theme/bloc/apptheme_bloc.dart';
+import 'package:localization/business%20logic/connectivity/bloc/appconnectivity_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -25,35 +29,42 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      supportedLocales: [
-        Locale('en'),
-        Locale('ar'),
-        Locale('es'),
-        Locale('fr'),
-        Locale('it'),
-        Locale('zh'),
-        Locale('nl'),
-        Locale('ja'),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AppthemeBloc()),
+        BlocProvider(create: (context) => AppconnectivityBloc()),
+        BlocProvider(create: (context) => ApplanguageBloc()),
       ],
-      localizationsDelegates: [
-        Applocalizations.delegate,
-        DefaultMaterialLocalizations.delegate,
-        DefaultWidgetsLocalizations.delegate,
-        DefaultCupertinoLocalizations.delegate,
-      ],
-      localeResolutionCallback: (devicelocales, supportedLocales) {
-        if (devicelocales != null) {
-          for (var locale in supportedLocales) {
-            if (locale.languageCode == devicelocales.languageCode) {
-              return locale;
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        supportedLocales: [
+          Locale('en'),
+          Locale('ar'),
+          Locale('es'),
+          Locale('fr'),
+          Locale('it'),
+          Locale('zh'),
+          Locale('nl'),
+          Locale('ja'),
+        ],
+        localizationsDelegates: [
+          Applocalizations.delegate,
+          DefaultMaterialLocalizations.delegate,
+          DefaultWidgetsLocalizations.delegate,
+          DefaultCupertinoLocalizations.delegate,
+        ],
+        localeResolutionCallback: (devicelocales, supportedLocales) {
+          if (devicelocales != null) {
+            for (var locale in supportedLocales) {
+              if (locale.languageCode == devicelocales.languageCode) {
+                return locale;
+              }
             }
           }
-        }
-        return supportedLocales.first;
-      },
-      home: Home(),
+          return supportedLocales.first;
+        },
+        home: Home(),
+      ),
     );
   }
 }

@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Text(Applocalizations.of(context)!.translate('home_page')),
+                  Text(Applocalizations.of(context)!.translate('home_page')),
                   ElevatedButton(
                     onPressed: () {},
                     child: Text(
@@ -56,6 +56,26 @@ class _HomeState extends State<Home> {
                     onPressed: () {},
                     child: Text(
                       'english',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                  ),
+                  SizedBox(width: 20.0),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Light theme',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all(Colors.blue)),
+                  ),
+                  SizedBox(width: 20.0),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Dark theme',
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(
