@@ -31,39 +31,58 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AppthemeBloc()),
+        BlocProvider(
+            create: (context) => AppthemeBloc()..add(InitalThemeEvent())),
         BlocProvider(create: (context) => AppconnectivityBloc()),
-        BlocProvider(create: (context) => ApplanguageBloc()),
+        BlocProvider(
+            create: (context) => ApplanguageBloc()..add(InitalLanguageEvent())),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        supportedLocales: [
-          Locale('en'),
-          Locale('ar'),
-          Locale('es'),
-          Locale('fr'),
-          Locale('it'),
-          Locale('zh'),
-          Locale('nl'),
-          Locale('ja'),
-        ],
-        localizationsDelegates: [
-          Applocalizations.delegate,
-          DefaultMaterialLocalizations.delegate,
-          DefaultWidgetsLocalizations.delegate,
-          DefaultCupertinoLocalizations.delegate,
-        ],
-        localeResolutionCallback: (devicelocales, supportedLocales) {
-          if (devicelocales != null) {
-            for (var locale in supportedLocales) {
-              if (locale.languageCode == devicelocales.languageCode) {
-                return locale;
-              }
-            }
-          }
-          return supportedLocales.first;
+      child: BlocBuilder<AppthemeBloc, AppthemeState>(
+        builder: (context, themestate) {
+          var theme = themestate is ChangeTheme ? themestate.appTheme : "l";
+          return BlocBuilder<ApplanguageBloc, ApplanguageState>(
+            builder: (context, langstate) {
+              var lang = langstate is ChangeLanguage ? langstate.applang : "en";
+              return BlocBuilder<AppconnectivityBloc, AppconnectivityState>(
+                builder: (context, connetstate) {
+                  var conn = connetstate is AppConnectedState
+                      ? connetstate.internetmessage
+                      : "Internet is Not Connectted";
+                  return MaterialApp(
+                    locale: Locale(lang!),
+                    theme: theme == "l" ? ThemeData.light() : ThemeData.dark(),
+                    debugShowCheckedModeBanner: false,
+                    supportedLocales: [
+                      Locale('en'),
+                      Locale('ar'),
+                    ],
+                    localizationsDelegates: [
+                      Applocalizations.delegate,
+                      DefaultMaterialLocalizations.delegate,
+                      DefaultWidgetsLocalizations.delegate,
+                      DefaultCupertinoLocalizations.delegate,
+                    ],
+                    localeResolutionCallback:
+                        (devicelocales, supportedLocales) {
+                      if (devicelocales != null) {
+                        for (var locale in supportedLocales) {
+                          if (locale.languageCode ==
+                              devicelocales.languageCode) {
+                            return locale;
+                          }
+                        }
+                      }
+                      return supportedLocales.first;
+                    },
+                    home: Home(
+                      Message: conn!,
+                    ),
+                  );
+                },
+              );
+            },
+          );
         },
-        home: Home(),
       ),
     );
   }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:localization/Helpers/applocalizations.dart';
 
 class Home extends StatefulWidget {
+  final String Message;
+
+  const Home({super.key, required this.Message});
   @override
   _HomeState createState() => _HomeState();
 }
