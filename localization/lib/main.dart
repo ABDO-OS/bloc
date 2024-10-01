@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/Helpers/applocalizations.dart';
 import 'package:localization/Helpers/constantes.dart';
+import 'package:localization/Helpers/observers/Appobservers.dart';
 import 'package:localization/Screens/home.dart';
 import 'package:localization/business%20logic/Languages/bloc/applanguage_bloc.dart';
 import 'package:localization/business%20logic/Theme/bloc/apptheme_bloc.dart';
@@ -12,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = Appobservers();
   sharedpreferences = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
               context.select((AppconnectivityBloc bloc) => bloc.state);
           return MaterialApp(
             theme: themeState is ChangeTheme
-                ? themeState.appTheme == "L"
+                ? themeState.appTheme == "l"
                     ? ThemeData.light()
                     : ThemeData.dark()
                 : ThemeData.light(),
