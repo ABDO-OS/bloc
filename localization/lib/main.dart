@@ -30,14 +30,58 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-            create: (context) => AppthemeBloc()..add(InitalThemeEvent())),
-        BlocProvider(create: (context) => AppconnectivityBloc()),
-        BlocProvider(
-            create: (context) => ApplanguageBloc()..add(InitalLanguageEvent())),
-      ],
-      child: BlocBuilder<AppthemeBloc, AppthemeState>(
+        providers: [
+          BlocProvider(
+              create: (context) => AppthemeBloc()..add(InitalThemeEvent())),
+          BlocProvider(create: (context) => AppconnectivityBloc()),
+          BlocProvider(
+              create: (context) =>
+                  ApplanguageBloc()..add(InitalLanguageEvent())),
+        ],
+        child: Builder(builder: (context) {
+          var themeState = context.select((AppthemeBloc bloc) => bloc.state);
+          var langState = context.select((ApplanguageBloc bloc) => bloc.state);
+          var connectivityState =
+              context.select((AppconnectivityBloc bloc) => bloc.state);
+          return MaterialApp(
+            theme: themeState is ChangeTheme
+                ? themeState.appTheme == "L"
+                    ? ThemeData.light()
+                    : ThemeData.dark()
+                : ThemeData.light(),
+            locale: langState is ChangeLanguage
+                ? langState.applang == "en"
+                    ? Locale("en")
+                    : Locale("ar")
+                : Locale("en"),
+            debugShowCheckedModeBanner: false,
+            supportedLocales: [
+              Locale('en'),
+              Locale('ar'),
+            ],
+            localizationsDelegates: [
+              Applocalizations.delegate,
+              DefaultMaterialLocalizations.delegate,
+              DefaultWidgetsLocalizations.delegate,
+              DefaultCupertinoLocalizations.delegate,
+            ],
+            localeResolutionCallback: (devicelocales, supportedLocales) {
+              if (devicelocales != null) {
+                for (var locale in supportedLocales) {
+                  if (locale.languageCode == devicelocales.languageCode) {
+                    return locale;
+                  }
+                }
+              }
+              return supportedLocales.first;
+            },
+            home: Home(
+                // Message: ,
+                ),
+          );
+        })
+
+        /*BlocBuilder<AppthemeBloc, AppthemeState>(
         builder: (context, themestate) {
           var theme = themestate is ChangeTheme ? themestate.appTheme : "l";
           return BlocBuilder<ApplanguageBloc, ApplanguageState>(
@@ -83,7 +127,7 @@ class MyApp extends StatelessWidget {
             },
           );
         },
-      ),
-    );
+      ),*/
+        );
   }
 }
