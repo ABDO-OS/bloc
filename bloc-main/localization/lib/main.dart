@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => CharactersBloc(
               Charactersreprosatoirs(
-                charcterapi: charcterApi, // Initialize with a new instance
+                charcterapi: charcterApi,
               ),
             ),
           ),
