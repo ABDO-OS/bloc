@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/Data%20Layer/Model/Layout/layout.dart';
+import 'package:localization/Data%20Layer/Model/Login/login.dart';
 import 'package:localization/Data%20Layer/Model/charactersdetaild.dart';
-import 'package:localization/Data%20Layer/Model/layout.dart';
-import 'package:localization/Data%20Layer/Model/login.dart';
+// import 'package:localization/Data%20Layer/Model/layout.dart';
+// import 'package:localization/Data%20Layer/Model/login.dart';
 import 'package:localization/Data%20Layer/Model/reprosatoris/charactersreprosatoirs.dart';
 import 'package:localization/Data%20Layer/api_server/charcterapi.dart';
 import 'package:localization/Helpers/Route/routes.dart';
