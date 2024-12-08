@@ -1,17 +1,13 @@
 import 'package:flutter/cupertino.dart';
-// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/Data%20Layer/Model/Login/login.dart';
-import 'package:localization/Data%20Layer/Model/characters/characterscollection.dart';
-// import 'package:localization/Data%20Layer/Model/login.dart';
 import 'package:localization/Data%20Layer/Model/reprosatoris/charactersreprosatoirs.dart';
 import 'package:localization/Data%20Layer/api_server/charcterapi.dart';
 import 'package:localization/Helpers/Route/approuting.dart';
 import 'package:localization/Helpers/applocalizations.dart';
 import 'package:localization/Helpers/constantes.dart';
 import 'package:localization/Helpers/observers/Appobservers.dart';
-import 'package:localization/Screens/home.dart';
 import 'package:localization/business%20logic/Languages/bloc/applanguage_bloc.dart';
 import 'package:localization/business%20logic/Theme/bloc/apptheme_bloc.dart';
 import 'package:localization/business%20logic/characters/bloc/characters_bloc.dart';
