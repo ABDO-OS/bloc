@@ -98,11 +98,6 @@ class MyApp extends StatelessWidget {
               return supportedLocales.first;
             },
             home: LoginScreen(),
-            //  Home(
-            //   Message: connectivityState is AppConnectedState
-            //       ? "Internet is connected"
-            //       : "Internet is not connected",
-            // ),
           );
         })
 
