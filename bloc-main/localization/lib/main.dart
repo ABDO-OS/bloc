@@ -101,7 +101,8 @@ class MyApp extends StatelessWidget {
           );
         })
 
-        /* BlocBuilder<AppthemeBloc, AppthemeState>(
+        /* 
+        BlocBuilder<AppthemeBloc, AppthemeState>(
         builder: (context, themestate) {
           var theme = themestate is ChangeTheme ? themestate.appTheme : "l";
           return BlocBuilder<ApplanguageBloc, ApplanguageState>(
