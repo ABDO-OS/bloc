@@ -1,1 +1,0 @@
-String charactersUrl = "Characters";
