@@ -1,4 +1,4 @@
-class Characters {
+class CharactersModel {
   int? id;
   String? firstName;
   String? lastName;
@@ -8,7 +8,7 @@ class Characters {
   String? image;
   String? imageUrl;
 
-  Characters(
+  CharactersModel(
       {this.id,
       this.firstName,
       this.lastName,
@@ -18,11 +18,12 @@ class Characters {
       this.image,
       this.imageUrl});
 
-  static List<Characters> fromData(List<Map<String, dynamic>> Data) {
-    return Data.map((character) => Characters.fromJson(character)).toList();
+  static List<CharactersModel> fromData(List<Map<String, dynamic>> Data) {
+    return Data.map((character) => CharactersModel.fromJson(character))
+        .toList();
   }
 
-  Characters.fromJson(Map<String, dynamic> json) {
+  CharactersModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     firstName = json['firstName'];
     lastName = json['lastName'];

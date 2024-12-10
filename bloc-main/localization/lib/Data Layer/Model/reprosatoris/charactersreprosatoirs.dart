@@ -7,12 +7,12 @@ class Charactersreprosatoirs {
 
   Charactersreprosatoirs({required this.charcterapi});
 
-  Future<List<Characters>> getCharater() async {
+  Future<List<CharactersModel>> getCharater() async {
     var characters = await charcterapi.getCharater();
     List<Map<String, dynamic>> items =
         List<Map<String, dynamic>>.from(characters);
 
-    List<Characters> seriescharacters = Characters.fromData(items);
+    List<CharactersModel> seriescharacters = CharactersModel.fromData(items);
     return seriescharacters;
   }
 }

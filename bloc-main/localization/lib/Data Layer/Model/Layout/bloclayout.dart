@@ -11,7 +11,10 @@ Widget bloclayout(Characterscollection charactercollection,
     builder: (context, state) {
       if (state is CharactersLoadedState) {
         charactercollection = state.characterscollection;
-        return Characterlistwidget();
+        return Characterlistwidget(
+          characterCollection: charactercollection,
+          characterController: scrollController,
+        );
       } else if (state is CharactersLoadingState) {}
       return Characterloading();
     },
