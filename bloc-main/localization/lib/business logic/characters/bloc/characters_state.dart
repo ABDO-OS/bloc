@@ -19,5 +19,5 @@ final class CharactersLoadedState extends CharactersState {
 
 final class CharactersErrorState extends CharactersState {
   final Characterscollection characterscollection;
-  CharactersErrorState({required this.characterscollection});
+  CharactersErrorState(String s, {required this.characterscollection});
 }

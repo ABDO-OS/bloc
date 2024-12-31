@@ -44,7 +44,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
       } else {
         final characteers =
             (state as CharactersLoadingState).characterscollection;
-        // characteers.characters!.addAll(Characterss as List<Characters>);
+        characteers.characters!.addAll(Characterss);
         emit(CharactersLoadedState(characterscollection: characterscollection));
       }
     });
