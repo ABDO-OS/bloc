@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localization/Data%20Layer/Model/Layout/characterwidget.dart';
 import 'package:localization/Data%20Layer/Model/characterloading.dart';
 import 'package:localization/Data%20Layer/Model/characters/characterscollection.dart';
 
@@ -24,7 +25,11 @@ class _CharacterlistwidgetState extends State<Characterlistwidget> {
       slivers: [
         SliverGrid(
             delegate: SliverChildBuilderDelegate(
-              (context, index) {},
+              (context, index) {
+                return Characterwidget(
+                  characteritem: widget.characterCollection.characters![index],
+                );
+              },
               childCount: widget.characterCollection.characters.length,
             ),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
