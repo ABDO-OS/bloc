@@ -24,10 +24,7 @@ class _CharacterlistwidgetState extends State<Characterlistwidget> {
       slivers: [
         SliverGrid(
             delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                //  return CharacterWidget(characterItem:widget.
-                //  characterCollection.character![index],);
-              },
+              (context, index) {},
               childCount: widget.characterCollection.characters.length,
             ),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
