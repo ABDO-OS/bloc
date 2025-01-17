@@ -124,14 +124,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: const Color.fromARGB(255, 0, 0, 0)
                                   .withOpacity(0.7)), // Hint text color
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
                               color: Colors.white, // Border color
                               width: 2,
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
                               color:
                                   Colors.white, // Border color when not focused
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(14),
                             borderSide: BorderSide(
                               color: const Color.fromARGB(255, 87, 169,
                                   135), // Border color when focused
@@ -149,16 +149,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 60,
+                        height: 50,
                       ),
                       Container(
                         height: 60,
-                        width: 250,
+                        width: 300,
+                        decoration: BoxDecoration(),
                         child: ElevatedButton(
                           onPressed: () {
                             BlocProvider.of<CharactersBloc>(context)
                                 .add(LoginEvent());
                           },
+
+                          // foregroundDecoration: BoxDecoration(
+                          //   borderRadius: BorderRadius.circular(15)),
                           child: Text(
                             "login",
                             style: TextStyle(
