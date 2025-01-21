@@ -20,7 +20,7 @@ class charactersDatailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (character.imageUrl != null && character.imageUrl!.isNotEmpty)
               Image.network(
@@ -33,46 +33,52 @@ class charactersDatailsScreen extends StatelessWidget {
             // Display First Name
             Container(
               width: 700,
-              height: 300,
-              color: const Color.fromARGB(255, 156, 156, 156),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              height: 250,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 156, 156, 156),
+              ),
               child: Column(
-                children: [],
-              ),
-            ),
-            Text(
-              'First Name: ${character.firstName ?? 'N/A'}',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8),
-            // Display Last Name
-            Text(
-              'Last Name: ${character.lastName ?? 'N/A'}',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8),
-            // Display Title
-            Text(
-              'Title: ${character.title ?? 'N/A'}',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8),
-            // Display Family
-            Text(
-              'Family: ${character.family ?? 'N/A'}',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+                // mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'First Name: ${character.firstName ?? 'N/A'}',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                  SizedBox(height: 8),
+                  // Display Last Name
+                  Text(
+                    'Last Name: ${character.lastName ?? 'N/A'}',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                  SizedBox(height: 8),
+                  // Display Title
+                  Text(
+                    'Title: ${character.title ?? 'N/A'}',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                  SizedBox(height: 8),
+                  // Display Family
+                  Text(
+                    'Family: ${character.family ?? 'N/A'}',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ],
               ),
             ),
           ],
