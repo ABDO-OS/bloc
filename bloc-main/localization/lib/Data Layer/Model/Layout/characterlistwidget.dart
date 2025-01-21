@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:localization/Data%20Layer/Model/Layout/characterwidget.dart';
 import 'package:localization/Data%20Layer/Model/characterloading.dart';
 import 'package:localization/Data%20Layer/Model/characters/characterscollection.dart';
+import 'package:localization/Data%20Layer/Model/charactersdetaild.dart';
 
 class Characterlistwidget extends StatefulWidget {
   Characterscollection characterCollection;
@@ -26,8 +27,22 @@ class _CharacterlistwidgetState extends State<Characterlistwidget> {
         SliverGrid(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                return Characterwidget(
-                  characteritem: widget.characterCollection.characters![index],
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => charactersDatailsScreen(
+                          character:
+                              widget.characterCollection.characters![index],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Characterwidget(
+                    characteritem:
+                        widget.characterCollection.characters![index],
+                  ),
                 );
               },
               childCount: widget.characterCollection.characters.length,

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:localization/Data%20Layer/Model/characters/characters.dart';
 
 class Characterwidget extends StatelessWidget {
-  CharactersModel characteritem;
+  final CharactersModel characteritem;
   Characterwidget({super.key, required this.characteritem});
 
   @override
@@ -16,21 +15,24 @@ class Characterwidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(15), color: Colors.white),
       child: GridTile(
           child: characteritem.imageUrl!.isEmpty
-              ? FadeInImage.assetNetwork(
+              ? Image.asset(
+                  "assets/images/d4af32dda6440ae6eae3ade9a2dca53e.jpg")
+              : FadeInImage.assetNetwork(
                   placeholder:
                       "assets/images/d4af32dda6440ae6eae3ade9a2dca53e.jpg",
                   image: characteritem.imageUrl!,
                   width: double.infinity,
                   height: double.infinity,
-                )
-              : Image.asset(
-                  "assets/images/d4af32dda6440ae6eae3ade9a2dca53e.jpg"),
+                  fit: BoxFit.cover,
+                ),
           footer: Text(
-            characteritem.fullName!,
+            characteritem.fullName ?? 'Unknown',
             textAlign: TextAlign.center,
             style: TextStyle(
-              height: 1.6,
-              fontSize: 13,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              height: 2,
+              fontSize: 15,
             ),
           )),
     );

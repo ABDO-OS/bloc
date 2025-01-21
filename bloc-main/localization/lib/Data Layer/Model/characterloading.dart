@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Characterloading extends StatefulWidget {
+class Characterloading extends StatelessWidget {
   const Characterloading({super.key});
 
   @override
-  State<Characterloading> createState() => _CharacterloadingState();
-}
-
-class _CharacterloadingState extends State<Characterloading> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Center(
+      child: CircularProgressIndicator(),
+    );
   }
 }

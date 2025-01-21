@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/Data%20Layer/Model/Layout/layout.dart';
 import 'package:localization/Data%20Layer/Model/Login/login.dart';
+import 'package:localization/Data%20Layer/Model/characters/characters.dart';
 import 'package:localization/Data%20Layer/Model/charactersdetaild.dart';
 import 'package:localization/Data%20Layer/Model/reprosatoris/charactersreprosatoirs.dart';
 import 'package:localization/Data%20Layer/api_server/charcterapi.dart';
@@ -30,9 +31,12 @@ class Approuting {
                 ));
 
       case charactersDetails:
-        return MaterialPageRoute(builder: (_) => charactersDatailsScreen());
+        final CharactersModel character = settings.arguments as CharactersModel;
+        return MaterialPageRoute(
+            builder: (_) => charactersDatailsScreen(character: character));
 
       default:
+        return null;
     }
   }
 }

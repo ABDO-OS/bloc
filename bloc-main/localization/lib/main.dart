@@ -24,14 +24,6 @@ void main() async {
     charcterApi: charcterApi,
   ));
 }
-/*
-Spanish : es
-French : fr
-Italin : it
-Chinese : zh
-Dutch : nl
-Japanese : ja	
-*/
 
 class MyApp extends StatelessWidget {
   final Approuting? approuting;
@@ -99,8 +91,9 @@ class MyApp extends StatelessWidget {
             },
             home: LoginScreen(),
           );
-        })
-
+        }));
+  }
+}
         /* 
         BlocBuilder<AppthemeBloc, AppthemeState>(
         builder: (context, themestate) {
@@ -149,6 +142,4 @@ class MyApp extends StatelessWidget {
           );
         },
       ),*/
-        );
-  }
-}
+        
