@@ -15,6 +15,13 @@ class charactersDatailsScreen extends StatelessWidget {
           character.fullName ?? 'Character Details',
           style: TextStyle(color: Colors.white),
         ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+        ),
         backgroundColor: const Color.fromARGB(255, 87, 87, 87),
       ),
       body: Padding(
@@ -23,11 +30,14 @@ class charactersDatailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (character.imageUrl != null && character.imageUrl!.isNotEmpty)
-              Image.network(
-                character.imageUrl!,
-                width: double.infinity,
-                height: 200,
-                fit: BoxFit.cover,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  character.imageUrl!,
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
               ),
             SizedBox(height: 30),
             // Display First Name
